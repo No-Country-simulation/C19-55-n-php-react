@@ -1,0 +1,27 @@
+[
+  {
+    "nombre": "Luz Torres",
+    "comentario": "Bella ha traído tanta felicidad a nuestra familia. Su ternura y su naturaleza cariñosa han creado un ambiente de paz y amor en nuestro hogar. Ver cómo se ha adaptado y cómo nos ha aceptado como su familia ha sido una experiencia increíble. ¡Gracias por hacer posible esta conexión tan especial!",
+    "image": "./testimonial-1.png"
+  },
+  {
+    "nombre": "Nora Díaz",
+    "comentario": "Adoptar a Nala fue una decisión impulsiva que resultó ser la mejor de mi vida. Su dulzura y su espíritu juguetón han transformado mi hogar en un lugar lleno de amor y alegría. Cada día con ella es una bendición, y estoy eternamente agradecido por haber encontrado a mi compañera perfecta.",
+    "image": "./testimonial-2.png"
+  },
+  {
+    "nombre": "Eva López",
+    "comentario": "Desde que Tom llegó a nuestra casa, ha sido una fuente constante de felicidad y diversión. Sus travesuras y su cariño nos han conquistado a todos. Es increíble ver cómo se ha adaptado y cómo hemos creado un vínculo tan fuerte en tan poco tiempo. ¡Gracias por darnos la oportunidad de ser su familia!",
+    "image": "./testimonial-3.png"
+  },
+  {
+    "nombre": "Mia Ruiz",
+    "comentario": "Luna llegó a mi vida en el momento perfecto. Su compañía ha sido increíble durante estos tiempos difíciles, y su amor incondicional me ha dado fuerza y alegría. Adoptarla no solo me ha dado una amiga fiel, sino también un motivo para sonreír cada día. ¡La adopción realmente cambia vidas!",
+    "image": "./testimonial-4.png"
+  },
+  {
+    "nombre": "Ana Pérez",
+    "comentario": "Adoptar a Max ha sido la mejor decisión que hemos tomado como familia. Su energía y alegría han llenado nuestro hogar de amor y risas. Cada día es una nueva aventura con él, y no podemos imaginar nuestras vidas sin su presencia. ¡Gracias por ayudarnos a encontrar a nuestro compañero perfecto!",
+    "image": "./testimonial-5.png"
+  }
+]

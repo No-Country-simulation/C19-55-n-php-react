@@ -19,7 +19,7 @@ const About = () => {
             para quienes buscan un compañero de vida.
           </p>
         </div>
-        <div className='img-container'>
+        <div className='img-container flex-center'>
           <img src='/img/about-img.png' alt='' className='about-img' />
         </div>
       </Element>

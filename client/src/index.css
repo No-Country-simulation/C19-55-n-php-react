@@ -13,7 +13,7 @@
 html {
   box-sizing: border-box;
   scroll-behavior: smooth;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 *,
@@ -102,10 +102,11 @@ img {
   height: auto;
 }
 
-@media (min-width: 1100px) {
+@media (min-width: 1200px) {
   h1 {
     font-size: 4rem;
   }
+
   h2 {
     font-size: 3rem;
     text-wrap: balance;
@@ -118,21 +119,22 @@ img {
 
 /* Establece el ancho máximo del contenido del sitio */
 .container {
-  width: min(100%, 1280px);
+  width: min(100%, 1200px);
   margin: auto;
   padding: 4rem 1rem;
 }
 
-@media (min-width: 1100px) {
+@media (min-width: 1200px) {
   .container {
-    padding: 6rem 0;
+    padding: 4rem 0;
   }
 }
 
 /* Establece las propiedades flexbox según corresponda */
 .flex-center,
 .flex-between,
-.flex-column {
+.flex-column,
+.flex-column-start {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -142,8 +144,13 @@ img {
   justify-content: space-between;
 }
 
-.flex-column {
+.flex-column,
+.flex-column-start {
   flex-direction: column;
+}
+
+.flex-column-start {
+  align-items: start;
 }
 
 /* Estilos para el botón de acción */
@@ -155,6 +162,7 @@ img {
   color: var(--main-color);
   font-weight: bold;
   display: inline-flex;
+  cursor: pointer;
 }
 
 /* Efecto al pasar el cursor sobre el boton principal */
@@ -172,6 +180,12 @@ img {
   color: var(--main-color);
   font-family: var(--title-font);
   font-weight: 600;
+  cursor: pointer;
+}
+
+.secondary-btn:hover {
+  transform: scale(1.04);
+  transition: all 200ms;
 }
 
 /* Estilos para cada subtitulo de color verde establecido en las secciones */
@@ -189,7 +203,159 @@ img {
   left: 0;
   content: '';
   width: 100%;
-  height: 3px;
+  height: 2px;
   background-color: var(--action-color);
 }
 /* CLASES UTILITARIAS */
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+/* COMPONENTE FORMULARIO */
+
+.login__form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 9999;
+}
+
+.login__form-container {
+  position: relative;
+  border-radius: 10px;
+}
+
+.close__btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 1.5rem;
+  cursor: pointer;
+}
+
+.login__form-img {
+  width: 10rem;
+}
+
+.login__form-container,
+.login__form-form {
+  gap: 1rem;
+}
+
+.login__form-container {
+  padding: 1rem;
+  background-color: var(--main-color);
+}
+
+.login__form-form {
+  align-items: start;
+  background-color: var(--light-grey);
+  color: var(--main-color);
+  padding: 1rem;
+  width: 22.5rem;
+  border-radius: 10px;
+}
+
+.login__form-form h5 {
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+
+.form__field {
+  align-items: start;
+  width: 100%;
+}
+
+.form__field label {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.7rem;
+}
+
+.form__field input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--main-color);
+  background-color: transparent;
+  outline: none;
+}
+
+.login__form-form .form__btn-container .secondary-btn {
+  border: none;
+  text-transform: uppercase;
+}
+
+.login__form-form p {
+  line-height: 0;
+}
+
+.login__form-form p span {
+  color: var(--action-color);
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-left: 0.4rem;
+}
+
+.form-error {
+  font-size: 0.6rem;
+  color: red;
+  margin: 0.6rem 0 0 0;
+}
+
+@media (min-width: 1200px) {
+  .login__form-container {
+    flex-direction: row;
+    max-width: 900px;
+    padding: 3rem;
+    gap: 3rem;
+  }
+
+  .login__form-form {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 40rem;
+  }
+
+  /* Estilos para el formulario de login */
+  .login {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .login .form__field {
+    width: 100%;
+  }
+  /* Estilos para el formulario de login */
+
+  .form__field {
+    width: 48%;
+  }
+
+  .login__form-form .form__btn-container {
+    width: 100%;
+  }
+
+  .login__form-img {
+    width: 30%;
+  }
+
+  .login__form-form p {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+}

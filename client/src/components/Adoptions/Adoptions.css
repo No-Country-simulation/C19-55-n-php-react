@@ -1,0 +1,28 @@
+.adoptions {
+  background-color: var(--text-color);
+  color: var(--main-color);
+}
+
+.adoptions .container .text-container {
+  gap: 2rem;
+}
+
+.adoptions .container .text-container .text-content h2 {
+  text-align: center;
+}
+
+@media (min-width: 1200px) {
+  .adoptions .container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .adoptions .container .text-container,
+  .adoptions .container .text-container .text-content {
+    align-items: start;
+  }
+
+  .adoptions .container .text-container .text-content h2 {
+    text-align: start;
+  }
+}

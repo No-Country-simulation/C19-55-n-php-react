@@ -14,6 +14,20 @@ header .container {
   width: 8rem;
 }
 
+.menu__button {
+  position: fixed;
+  bottom: 3vh;
+  right: 1vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 4rem;
+  background-color: var(--action-color);
+  border-radius: 50%;
+  border: solid 2px var(--main-color);
+}
+
 .navbar {
   position: fixed;
   top: 0;
@@ -36,20 +50,55 @@ header .container {
 
 .navbar__link {
   cursor: pointer;
+  font-size: 1.4rem;
 }
 
-.close__btn {
+.close__button {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  bottom: 3vh;
+  right: 1vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 4rem;
+  background-color: var(--action-color);
+  border-radius: 50%;
+  border: solid 2px var(--main-color);
 }
 
-@media (min-width: 1100px) {
+.close__button * {
+  width: 2rem;
+  height: 2rem;
+  fill: var(--main-color);
+}
+
+.user__icon-container {
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+  background-color: var(--text-color);
+  border: solid 1px #fff;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.user__icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: var(--main-color);
+}
+
+@media (min-width: 1200px) {
   header .container {
     position: relative;
   }
 
-  .menu__btn {
+  .menu__button {
     display: none;
   }
 
@@ -67,6 +116,7 @@ header .container {
   .navbar__link {
     position: relative;
     margin-inline: 16px;
+    font-size: 1rem;
   }
 
   .navbar__link::after {
@@ -95,7 +145,7 @@ header .container {
     cursor: pointer;
   }
 
-  .close__btn {
+  .close__button {
     display: none;
   }
 }

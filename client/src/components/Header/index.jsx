@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-scroll';
 import './Header.css';
+import { FaUserCircle, FaTimes } from 'react-icons/fa';
 
-const Header = () => {
+const Header = ({ openModal }) => {
   const [clickMenu, setClickMenu] = useState(false);
 
   const handleClick = () => {
@@ -13,12 +14,9 @@ const Header = () => {
     <header>
       <article className='container flex-between'>
         <img className='site__logo' src='./img/logo.png' alt='paws & hearts' />
-        <img
-          className='menu__btn'
-          src='./img/menu.png'
-          alt='icono de menu'
-          onClick={handleClick}
-        />
+        <div className='menu__button' onClick={handleClick}>
+          <img src='./img/menu-icon.svg' alt='icono de menu' />
+        </div>
         <nav className={`navbar ${clickMenu ? 'open' : ''}`}>
           <Link
             className='navbar__link'
@@ -50,20 +48,23 @@ const Header = () => {
           >
             Adoptar
           </Link>
-          <Link className='navbar__link'>Dar en Adopción</Link>
-          <Link className='navbar__link'>Testimonios</Link>
-          <img
-            className='user__icon'
-            src='./img/user-icon.png'
-            alt='icono de usuario'
-          />
-          <img
-            className='close__btn'
-            src='./img/close-btn.png'
-            alt='icono de cerrar'
+          <Link
+            to='adoptions'
+            className='navbar__link'
             onClick={() => setClickMenu(false)}
-          />
+          >
+            Dar en Adopción
+          </Link>
+          <Link to='testimonials' className='navbar__link'>
+            Testimonios
+          </Link>
+          <div className='close__button' onClick={() => setClickMenu(false)}>
+            <FaTimes />
+          </div>
         </nav>
+        <div className='flex-center user__icon-container' onClick={openModal}>
+          <FaUserCircle className='user__icon' />
+        </div>
       </article>
     </header>
   );
