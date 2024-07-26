@@ -12,17 +12,22 @@
 
 .pet__card {
   width: 18.75rem;
-  height: auto;
+  height: 25rem;
   background-color: var(--text-color);
   padding: 1rem;
   color: var(--main-color);
   border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
 }
 
 .pet__card-img {
-  width: 20rem;
-  height: 14rem;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  
   border-radius: 12px 12px 0 0;
 }
 

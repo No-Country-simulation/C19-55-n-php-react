@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Element } from 'react-scroll';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 import './Pets.css';
 
 const Pets = ({ pets }) => {
   const [images, setImages] = useState({});
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchImages = async () => {
@@ -17,6 +20,7 @@ const Pets = ({ pets }) => {
         }
       }
       setImages(newImages);
+      setLoading(false);
     };
 
     fetchImages();
@@ -36,11 +40,15 @@ const Pets = ({ pets }) => {
           {pets.map((pet) => {
             return (
               <figure className='flex-column pet__card' key={pet.id}>
-                <img
-                  src={images[pet.id] || './img/pet-img01.png'}
-                  alt={pet.nombre}
-                  className='pet__card-img'
-                />
+                {loading || !images[pet.id] ? (
+                  <Skeleton height={200} width={300} />
+                ) : (
+                  <img
+                    src={images[pet.id]}
+                    alt={pet.nombre}
+                    className='pet__card-img'
+                  />
+                )}
                 <figcaption className='flex-column pet__card-details'>
                   <div className='flex-between pet__card-text'>
                     <h6>{pet.nombre}</h6>
