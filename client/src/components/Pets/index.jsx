@@ -1,8 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Element } from 'react-scroll';
 import './Pets.css';
 
-const Pets = ({ pets, images }) => {
+const Pets = ({ pets }) => {
+  const [images, setImages] = useState({});
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      const newImages = {};
+      for (const pet of pets) {
+        const response = await fetch(`https://no-code-backend-sn9i.onrender.com/api/pets/${pet.id}/images`);
+        const data = await response.json();
+        if (data.length > 0) {
+          const base64Image = `data:${data[0].mime_type};base64,${data[0].contenido}`;
+          newImages[pet.id] = base64Image;
+        }
+      }
+      setImages(newImages);
+    };
+
+    fetchImages();
+  }, [pets]);
+
   return (
     <section className='pets'>
       <Element name='pets' className='container flex-column'>
@@ -18,8 +37,8 @@ const Pets = ({ pets, images }) => {
             return (
               <figure className='flex-column pet__card' key={pet.id}>
                 <img
-                  src='./img/pet-img01.png'
-                  alt=''
+                  src={images[pet.id] || './img/pet-img01.png'}
+                  alt={pet.nombre}
                   className='pet__card-img'
                 />
                 <figcaption className='flex-column pet__card-details'>
