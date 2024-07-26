@@ -240,7 +240,7 @@ img {
 }
 
 .login__form-img {
-  width: 10rem;
+  width: 5rem;
 }
 
 .login__form-container,
@@ -258,7 +258,7 @@ img {
   background-color: var(--light-grey);
   color: var(--main-color);
   padding: 1rem;
-  width: 22.5rem;
+  width: min(100%, 22.5rem);
   border-radius: 10px;
 }
 

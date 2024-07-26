@@ -13,7 +13,7 @@ const Adoptions = () => {
           </div>
           <a className='secondary-btn'>Reubicación Responsable</a>
         </div>
-        <div className='img-container'>
+        <div className='img-container flex-center'>
           <img src='./img/adoptions-img.png' alt='' />
         </div>
       </Element>

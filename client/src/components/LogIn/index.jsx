@@ -1,9 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import UserRegister from '../SignIn';
 import { FaTimesCircle } from 'react-icons/fa';
+import { helpHttp } from '../../helpers/helpHttp';
 
 const LogIn = ({ isModalOpen, closeModal }) => {
   const [loginUser, setLoginUser] = useState(true);
+  const [users, setUsers] = useState([]);
+
+  // Obtener la información de los usuarios
+  useEffect(() => {
+    helpHttp()
+      .get('https://no-code-backend-sn9i.onrender.com/api/users')
+      .then((resp) => {
+        if (!resp.error) {
+          setUsers(resp);
+          console.log(users);
+        } else {
+          console.log(resp.error);
+        }
+      });
+  }, []);
 
   // Cambiar entre formulario de inicio de sesión y registro de usuario
   const registerForm = () => {

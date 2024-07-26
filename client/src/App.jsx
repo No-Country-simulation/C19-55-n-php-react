@@ -7,6 +7,7 @@ import { helpHttp } from './helpers/helpHttp';
 import LogIn from './components/LogIn';
 import Adoptions from './components/Adoptions';
 import Testimonials from './components/Testimonials';
+import Footer from './components/Footer';
 
 function App() {
   const [pets, setPets] = useState([]);
@@ -44,6 +45,7 @@ function App() {
       <Pets pets={pets} />
       <Adoptions />
       <Testimonials />
+      <Footer />
       <LogIn isModalOpen={isModalOpen} closeModal={closeModal} />
     </>
   );

@@ -10,6 +10,7 @@
 
 .text-container {
   width: 100%;
+  padding-inline: 1rem;
 }
 
 .hero .container .text-container > p span {

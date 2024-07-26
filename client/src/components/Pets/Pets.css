@@ -20,6 +20,9 @@
 }
 
 .pet__card-img {
+  width: 20rem;
+  height: 14rem;
+  object-fit: contain;
   border-radius: 12px 12px 0 0;
 }
 

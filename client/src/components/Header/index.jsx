@@ -55,7 +55,11 @@ const Header = ({ openModal }) => {
           >
             Dar en Adopción
           </Link>
-          <Link to='testimonials' className='navbar__link'>
+          <Link
+            to='testimonials'
+            className='navbar__link'
+            onClick={() => setClickMenu(false)}
+          >
             Testimonios
           </Link>
           <div className='close__button' onClick={() => setClickMenu(false)}>

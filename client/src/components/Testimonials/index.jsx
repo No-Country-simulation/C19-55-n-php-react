@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 import 'swiper/css';
 import './Testimonials.css';
 import data from '../../testimonials.json';
-import { sliderSettings } from '../../common';
+import { sliderSettings } from '../../testimonialsSliderSettings';
 import { FaLongArrowAltLeft, FaLongArrowAltRight } from 'react-icons/fa';
 
 const Testimonials = () => {
