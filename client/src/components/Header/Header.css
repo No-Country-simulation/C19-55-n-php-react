@@ -16,8 +16,8 @@ header .container {
 
 .menu__button {
   position: fixed;
-  bottom: 3vh;
-  right: 1vh;
+  bottom: 2vh;
+  right: 2vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -55,8 +55,8 @@ header .container {
 
 .close__button {
   position: absolute;
-  bottom: 3vh;
-  right: 1vh;
+  bottom: 2vh;
+  right: 2vh;
   display: flex;
   justify-content: center;
   align-items: center;

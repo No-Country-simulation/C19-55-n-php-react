@@ -6,13 +6,14 @@ import './Pets.css';
 
 const Pets = ({ pets }) => {
   const [images, setImages] = useState({});
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchImages = async () => {
       const newImages = {};
       for (const pet of pets) {
-        const response = await fetch(`https://no-code-backend-sn9i.onrender.com/api/pets/${pet.id}/images`);
+        const response = await fetch(
+          `https://no-code-backend-sn9i.onrender.com/api/pets/${pet.id}/images`
+        );
         const data = await response.json();
         if (data.length > 0) {
           const base64Image = `data:${data[0].mime_type};base64,${data[0].contenido}`;
@@ -20,7 +21,6 @@ const Pets = ({ pets }) => {
         }
       }
       setImages(newImages);
-      setLoading(false);
     };
 
     fetchImages();

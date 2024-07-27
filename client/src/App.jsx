@@ -1,13 +1,10 @@
 import { useEffect, useState } from 'react';
-import About from './components/About';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import Pets from './components/Pets';
 import { helpHttp } from './helpers/helpHttp';
-import LogIn from './components/LogIn';
-import Adoptions from './components/Adoptions';
-import Testimonials from './components/Testimonials';
-import Footer from './components/Footer';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home/Home';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import Dashboard from './pages/UserDashboard';
+import { AuthProvider } from './context/AuthContext';
 
 function App() {
   const [pets, setPets] = useState([]);
@@ -38,16 +35,31 @@ function App() {
   };
 
   return (
-    <>
-      <Header openModal={openModal} />
-      <Hero />
-      <About />
-      <Pets pets={pets} />
-      <Adoptions />
-      <Testimonials />
-      <Footer />
-      <LogIn isModalOpen={isModalOpen} closeModal={closeModal} />
-    </>
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path='/'
+            element={
+              <Home
+                pets={pets}
+                isModalOpen={isModalOpen}
+                openModal={openModal}
+                closeModal={closeModal}
+              />
+            }
+          />
+          <Route
+            path='/dashboard'
+            element={
+              <PrivateRoute>
+                <Dashboard />
+              </PrivateRoute>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 

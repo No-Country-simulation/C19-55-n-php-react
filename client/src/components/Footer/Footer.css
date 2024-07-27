@@ -10,7 +10,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: min(100%, 25rem);
+  width: min(100%, 24rem);
   margin-top: 3rem;
   gap: 1rem;
 }
@@ -23,7 +23,7 @@
 .site__footer-form--form-space {
   background-color: var(--text-color);
   width: 100%;
-  padding: 0.3rem 0.5rem;
+  padding: 0.5rem 0.5rem;
   border-radius: 50px;
 }
 
@@ -39,6 +39,7 @@
 
 .site__footer-form--form-space input[type='submit'] {
   border-radius: 50px;
+  border: none;
   font-size: 0.8rem;
 }
 

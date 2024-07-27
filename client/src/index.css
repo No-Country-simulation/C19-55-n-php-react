@@ -28,6 +28,7 @@ body {
   background-color: var(--main-color);
   color: var(--text-color);
   font-family: var(--main-font);
+  overflow-x: hidden;
 }
 
 /* Cabia la apariencia de la barra de dezplazamiento */

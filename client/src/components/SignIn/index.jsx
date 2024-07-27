@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { helpHttp } from '../../helpers/helpHttp';
 
 const initialForm = {
@@ -45,7 +45,6 @@ const UserRegister = ({ setLoginUser }) => {
 
     if (validateForm()) {
       console.log('Enviando formulario...');
-
       helpHttp()
         .post('https://no-code-backend-sn9i.onrender.com/api/users/register', {
           body: registerForm,
@@ -56,17 +55,15 @@ const UserRegister = ({ setLoginUser }) => {
         })
         .then((response) => {
           if (!response.error) {
-            console.log('Formulario enviado :)');
+            console.log(response.message);
             console.log(registerForm);
             setRegisterForm(initialForm);
             setLoginUser(true);
           } else {
-            console.log(registerForm);
-            console.log('Formulario no enviado :(');
+            console.log(response.status);
+            console.log(response);
           }
         });
-    } else {
-      return;
     }
   };
 
