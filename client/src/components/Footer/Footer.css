@@ -1,0 +1,62 @@
+.site__footer {
+  background-color: var(--light-black);
+}
+
+.site__footer-logo {
+  width: 10rem;
+}
+
+.site__footer-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(100%, 25rem);
+  margin-top: 3rem;
+  gap: 1rem;
+}
+
+.site__footer-form label {
+  font-family: var(--title-font);
+  font-weight: 600;
+}
+
+.site__footer-form--form-space {
+  background-color: var(--text-color);
+  width: 100%;
+  padding: 0.3rem 0.5rem;
+  border-radius: 50px;
+}
+
+.site__footer-form--form-space input[type='email'] {
+  width: 70%;
+  height: 1.2rem;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  font-family: var(--main-font);
+  font-size: 1rem;
+}
+
+.site__footer-form--form-space input[type='submit'] {
+  border-radius: 50px;
+  font-size: 0.8rem;
+}
+
+@media (min-width: 769px) {
+  .site__footer .container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .site__footer-form {
+    align-items: start;
+  }
+
+  .site__footer-form label {
+    font-size: 1.4rem;
+  }
+
+  .site__footer-logo {
+    width: 15rem;
+  }
+}

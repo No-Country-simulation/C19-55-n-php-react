@@ -1,0 +1,67 @@
+.hero {
+  padding: 8rem 0 0 0;
+}
+
+.hero .container {
+  text-align: center;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+.text-container {
+  width: 100%;
+  padding-inline: 1rem;
+}
+
+.hero .container .text-container > p span {
+  color: var(--action-color);
+}
+
+.img-container {
+  flex-wrap: wrap;
+  margin-top: 4rem;
+  width: 100%;
+}
+
+.hero-img {
+  width: 50%;
+}
+
+@media (min-width: 1200px) {
+  .hero {
+    padding: 0;
+  }
+
+  .hero .container {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .text-container,
+  .img-container {
+    width: 50%;
+  }
+
+  .img-container {
+    width: 45.5%;
+  }
+
+  .hero .container .text-container {
+    text-align: left;
+    padding-left: 1.5rem;
+    padding-top: 3rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  .hero .container .text-container {
+    text-align: left;
+    padding-left: 10.5rem;
+  }
+}
+
+@media (min-width: 1800px) {
+  .hero .container .text-container {
+    padding-left: 20rem;
+  }
+}

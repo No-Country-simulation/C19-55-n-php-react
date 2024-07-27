@@ -1,0 +1,361 @@
+:root {
+  --main-font: 'Roboto', sans-serif;
+  --title-font: 'Poppins', sans-serif;
+  --main-color: #222629;
+  --text-color: #fbf8ef;
+  --action-color: #86c232;
+  --dark-green: #61892f;
+  --light-black: #474b4f;
+  --light-grey: #e6e3da;
+}
+
+/* Reseteo de propiedades de elementos por defecto */
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-size: 14px;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--main-color);
+  color: var(--text-color);
+  font-family: var(--main-font);
+}
+
+/* Cabia la apariencia de la barra de dezplazamiento */
+*::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--action-color);
+  border-radius: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: var(--main-color);
+  border-radius: 10px;
+}
+/* Cabia la apariencia de la barra de dezplazamiento */
+
+h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+h4 {
+  margin: 0;
+  font-size: 1.125rem;
+}
+
+h5 {
+  margin: 0;
+  font-size: 1.125rem;
+}
+
+h6 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--title-font);
+}
+
+p {
+  line-height: 1.6;
+}
+
+a {
+  color: var(--text-color);
+  font-family: var(--main-font);
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (min-width: 1200px) {
+  h1 {
+    font-size: 4rem;
+  }
+
+  h2 {
+    font-size: 3rem;
+    text-wrap: balance;
+    line-height: 1.2em;
+  }
+}
+/* Reseteo de propiedades de elementos por defecto */
+
+/* CLASES UTILITARIAS */
+
+/* Establece el ancho máximo del contenido del sitio */
+.container {
+  width: min(100%, 1200px);
+  margin: auto;
+  padding: 4rem 1rem;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    padding: 4rem 0;
+  }
+}
+
+/* Establece las propiedades flexbox según corresponda */
+.flex-center,
+.flex-between,
+.flex-column,
+.flex-column-start {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  justify-content: space-between;
+}
+
+.flex-column,
+.flex-column-start {
+  flex-direction: column;
+}
+
+.flex-column-start {
+  align-items: start;
+}
+
+/* Estilos para el botón de acción */
+.action-btn {
+  padding: 1rem 1.5rem;
+  background-color: var(--text-color);
+  border-radius: 10px;
+  gap: 0.8rem;
+  color: var(--main-color);
+  font-weight: bold;
+  display: inline-flex;
+  cursor: pointer;
+}
+
+/* Efecto al pasar el cursor sobre el boton principal */
+.action-btn:hover {
+  background-color: var(--action-color);
+  transform: scale(1.04);
+  transition: all 200ms;
+}
+
+/* Estilos para los botones de las cards de cada mascota */
+.secondary-btn {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--action-color);
+  border-radius: 10px;
+  color: var(--main-color);
+  font-family: var(--title-font);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.secondary-btn:hover {
+  transform: scale(1.04);
+  transition: all 200ms;
+}
+
+/* Estilos para cada subtitulo de color verde establecido en las secciones */
+.section-subtitle {
+  position: relative;
+  display: inline-flex;
+  color: var(--action-color);
+  margin-bottom: 10px;
+}
+
+/* Linea delgada que aparece debajo de cada subtitulo */
+.section-subtitle::after {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 2px;
+  background-color: var(--action-color);
+}
+/* CLASES UTILITARIAS */
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+/* COMPONENTE FORMULARIO */
+
+.login__form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 9999;
+}
+
+.login__form-container {
+  position: relative;
+  border-radius: 10px;
+}
+
+.close__btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 1.5rem;
+  cursor: pointer;
+}
+
+.login__form-img {
+  width: 5rem;
+}
+
+.login__form-container,
+.login__form-form {
+  gap: 1rem;
+}
+
+.login__form-container {
+  padding: 1rem;
+  background-color: var(--main-color);
+}
+
+.login__form-form {
+  align-items: start;
+  background-color: var(--light-grey);
+  color: var(--main-color);
+  padding: 1rem;
+  width: min(100%, 22.5rem);
+  border-radius: 10px;
+}
+
+.login__form-form h5 {
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+
+.form__field {
+  align-items: start;
+  width: 100%;
+}
+
+.form__field label {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.7rem;
+}
+
+.form__field input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--main-color);
+  background-color: transparent;
+  outline: none;
+}
+
+.login__form-form .form__btn-container .secondary-btn {
+  border: none;
+  text-transform: uppercase;
+}
+
+.login__form-form p {
+  line-height: 0;
+}
+
+.login__form-form p span {
+  color: var(--action-color);
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-left: 0.4rem;
+}
+
+.form-error {
+  font-size: 0.6rem;
+  color: red;
+  margin: 0.6rem 0 0 0;
+}
+
+@media (min-width: 1200px) {
+  .login__form-container {
+    flex-direction: row;
+    max-width: 900px;
+    padding: 3rem;
+    gap: 3rem;
+  }
+
+  .login__form-form {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 40rem;
+  }
+
+  /* Estilos para el formulario de login */
+  .login {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .login .form__field {
+    width: 100%;
+  }
+  /* Estilos para el formulario de login */
+
+  .form__field {
+    width: 48%;
+  }
+
+  .login__form-form .form__btn-container {
+    width: 100%;
+  }
+
+  .login__form-img {
+    width: 30%;
+  }
+
+  .login__form-form p {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+}
