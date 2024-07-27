@@ -40,7 +40,7 @@ const Pets = ({ pets }) => {
           {pets.map((pet) => {
             return (
               <figure className='flex-column pet__card' key={pet.id}>
-                {loading || !images[pet.id] ? (
+                {!images[pet.id] ? (
                   <Skeleton height={200} width={300} />
                 ) : (
                   <img
