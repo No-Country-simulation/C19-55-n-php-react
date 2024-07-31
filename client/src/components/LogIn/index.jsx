@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
+import { useAuth } from '../../context/AuthContext';
+import { helpHttp } from '../../helpers/helpHttp';
 import UserRegister from '../SignIn';
 import { FaTimesCircle } from 'react-icons/fa';
-import { helpHttp } from '../../helpers/helpHttp';
-import { useAuth } from '../../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
+
 
 const initialForm = {
   correo: '',
@@ -15,7 +15,8 @@ const LogIn = ({ isModalOpen, closeModal }) => {
   const [loginForm, setLoginForm] = useState(initialForm);
   const [formErrors, setFormErrors] = useState({});
   const { login } = useAuth();
-  const navigate = useNavigate();
+
+  
 
   const validateForm = () => {
     let errors = {};
@@ -45,7 +46,6 @@ const LogIn = ({ isModalOpen, closeModal }) => {
     e.preventDefault();
 
     if (validateForm()) {
-      console.log('Accediendo...');
       helpHttp()
         .post('https://no-code-backend-sn9i.onrender.com/api/users/login', {
           body: loginForm,
@@ -55,16 +55,18 @@ const LogIn = ({ isModalOpen, closeModal }) => {
           },
         })
         .then((response) => {
-          if (!response.error) {
-            console.log('Bienvenido...');
-            login();
-            navigate('/dashboard');
+          if (response.token && response.userId) {
+            login(response.token, response.userId);
+          alert('Inicio de sesión exitoso');
+            closeModal();
+         
+          } else {
+            console.error('Error al iniciar sesión:', response.error);
           }
         });
     }
   };
 
-  // Cambiar entre formulario de inicio de sesión y registro de usuario
   const registerForm = () => {
     setLoginUser(false);
   };

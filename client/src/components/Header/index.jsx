@@ -1,13 +1,24 @@
 import React, { useState } from 'react';
-import { Link } from 'react-scroll';
+import {  useNavigate } from 'react-router-dom';
+import { Link as ScrollLink } from 'react-scroll';
 import './Header.css';
 import { FaUserCircle, FaTimes } from 'react-icons/fa';
-
+import { useAuth } from '../../context/AuthContext'; 
 const Header = ({ openModal }) => {
   const [clickMenu, setClickMenu] = useState(false);
+  const { isAuth } = useAuth(); 
+  const navigate = useNavigate(); 
 
   const handleClick = () => {
     setClickMenu(!clickMenu);
+  };
+
+  const handleUserIconClick = () => {
+    if (isAuth) {
+      navigate('/dashboard');
+    } else {
+      openModal(); 
+    }
   };
 
   return (
@@ -18,7 +29,7 @@ const Header = ({ openModal }) => {
           <img src='./img/menu-icon.svg' alt='icono de menu' />
         </div>
         <nav className={`navbar ${clickMenu ? 'open' : ''}`}>
-          <Link
+          <ScrollLink
             className='navbar__link'
             to='hero'
             smooth={true}
@@ -27,8 +38,8 @@ const Header = ({ openModal }) => {
             onClick={handleClick}
           >
             Inicio
-          </Link>
-          <Link
+          </ScrollLink>
+          <ScrollLink
             className='navbar__link'
             to='about'
             smooth={true}
@@ -37,8 +48,8 @@ const Header = ({ openModal }) => {
             onClick={handleClick}
           >
             Sobre Nosotros
-          </Link>
-          <Link
+          </ScrollLink>
+          <ScrollLink
             className='navbar__link'
             to='pets'
             smooth={true}
@@ -47,26 +58,26 @@ const Header = ({ openModal }) => {
             onClick={handleClick}
           >
             Adoptar
-          </Link>
-          <Link
+          </ScrollLink>
+          <ScrollLink
             to='adoptions'
             className='navbar__link'
             onClick={() => setClickMenu(false)}
           >
             Dar en Adopción
-          </Link>
-          <Link
+          </ScrollLink>
+          <ScrollLink
             to='testimonials'
             className='navbar__link'
             onClick={() => setClickMenu(false)}
           >
             Testimonios
-          </Link>
+          </ScrollLink>
           <div className='close__button' onClick={() => setClickMenu(false)}>
             <FaTimes />
           </div>
         </nav>
-        <div className='flex-center user__icon-container' onClick={openModal}>
+        <div className='flex-center user__icon-container' onClick={handleUserIconClick}>
           <FaUserCircle className='user__icon' />
         </div>
       </article>
@@ -75,3 +86,4 @@ const Header = ({ openModal }) => {
 };
 
 export default Header;
+
